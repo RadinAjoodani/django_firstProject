@@ -35,8 +35,10 @@
         </h5>
         <small> {{room.topic}} </small>
         <br />
+        {% if request.user == room.host %}
         <a href="{% url 'update-room' room.id %}">Edit room</a>
         <a href="{% url 'delete-room' room.id %}">Delete</a>
+        {% endif %}
         <hr />
       </div>
       {% endfor %}
